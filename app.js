@@ -21,11 +21,19 @@ document.getElementById("form").addEventListener("submit", function (e) {
      (ikze * ikzeReturn)) / total
   ).toFixed(2);
 
-  document.getElementById("result").innerText = `Łączna stopa zwrotu: ${totalReturn}%`;
+  // Formatowanie liczb w stylu "10 000"
+  const formattedDeposit = deposit.toLocaleString("pl-PL");
+  const formattedBonds = bonds.toLocaleString("pl-PL");
+  const formattedIkze = ikze.toLocaleString("pl-PL");
+
+  document.getElementById("result").innerText =
+    `Łączna stopa zwrotu: ${totalReturn}%\n` +
+    `Depozyt: ${formattedDeposit} PLN\n` +
+    `Obligacje: ${formattedBonds} PLN\n` +
+    `IKZE: ${formattedIkze} PLN`;
 
   const ctx = document.getElementById("pieChart").getContext("2d");
 
-  // Poprawka błędu destroy is not a function
   if (window.pieChart instanceof Chart) {
     window.pieChart.destroy();
   }
@@ -44,6 +52,16 @@ document.getElementById("form").addEventListener("submit", function (e) {
       plugins: {
         legend: {
           position: "bottom"
+        },
+        tooltip: {
+          callbacks: {
+            label: function(context) {
+              const label = context.label || "";
+              const value = context.parsed;
+              const formatted = value.toLocaleString("pl-PL");
+              return `${label}: ${formatted} PLN`;
+            }
+          }
         }
       }
     }
