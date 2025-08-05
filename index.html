@@ -8,32 +8,20 @@
 </head>
 <body>
   <div class="container">
-    <h1>Kalkulator Portfela</h1>
+    <h1>Kalkulator Portfela (PLN)</h1>
     <form id="form">
       <div class="input-group">
-        <label>Depozyt (%)</label>
-        <input type="number" id="deposit" value="30" min="0" max="100" />
+        <label>Depozyt (PLN)</label>
+        <input type="number" id="deposit" value="10000" min="0" />
         <label>Stopa zwrotu (%)</label>
         <input type="number" id="depositReturn" value="2" />
       </div>
       <div class="input-group">
-        <label>Fundusz obligacyjny (%)</label>
-        <input type="number" id="bonds" value="40" min="0" max="100" />
+        <label>Fundusz obligacyjny (PLN)</label>
+        <input type="number" id="bonds" value="20000" min="0" />
         <label>Stopa zwrotu (%)</label>
         <input type="number" id="bondsReturn" value="6" />
       </div>
       <div class="input-group">
-        <label>IKZE (%)</label>
-        <input type="number" id="ikze" value="30" min="0" max="100" />
-        <label>Stopa zwrotu (%)</label>
-        <input type="number" id="ikzeReturn" value="8" />
-      </div>
-      <button type="submit">Oblicz</button>
-    </form>
-    <p id="result">Łączna stopa zwrotu: --%</p>
-    <canvas id="pieChart" width="300" height="300"></canvas>
-  </div>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script src="app.js"></script>
-</body>
-</html>
+        <label>IKZE (PLN)</label>
+        <input type="number" id="ikze" value="15000" min="0" />
