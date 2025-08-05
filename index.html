@@ -14,27 +14,27 @@
         <label>Depozyt (PLN)</label>
         <input type="number" id="deposit" value="10000" step="0.01" min="0" />
         <label>Stopa zwrotu (%)</label>
-        <input type="number" id="depositReturn" value="2" step="0.01" />
+        <input type="number" id="depositReturn" value="2.8" step="0.01" />
       </div>
       <div class="input-group">
         <label>Fundusz obligacyjny (PLN)</label>
-        <input type="number" id="bonds" value="20000" step="0.01"min="0" />
+        <input type="number" id="bonds" value="20000" step="0.01" min="0" />
         <label>Stopa zwrotu (%)</label>
-        <input type="number" id="bondsReturn" value="5" step="0.01" />
+        <input type="number" id="bondsReturn" value="5.5" step="0.01" />
       </div>
-     <div class="input-group">
-  <label>IKZE (PLN)</label>
-  <input type="number" id="deposit" value="10000" step="0.01" min="0" />
-  <label>Stopa zwrotu (%)</label>
-  <input type="number" id="depositReturn" value="10" step="0.01" />
-</div>
+      <div class="input-group">
+        <label>IKZE (PLN)</label>
+        <input type="number" id="ikze" value="15000" step="0.01" min="0" />
+        <label>Stopa zwrotu (%)</label>
+        <input type="number" id="ikzeReturn" value="12.0" step="0.01" />
+      </div>
       <button type="submit">Oblicz</button>
     </form>
     <p id="result">Łączna stopa zwrotu: --%</p>
     <canvas id="pieChart" width="300" height="300"></canvas>
   </div>
 
-  <!-- Chart.js CDN – UWAGA: przed app.js -->
+  <!-- Ładowanie biblioteki Chart.js (musi być PRZED app.js!) -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="app.js"></script>
 </body>
