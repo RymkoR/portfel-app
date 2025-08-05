@@ -1,5 +1,6 @@
 document.getElementById("form").addEventListener("submit", function (e) {
   e.preventDefault();
+
   const deposit = parseFloat(document.getElementById("deposit").value);
   const bonds = parseFloat(document.getElementById("bonds").value);
   const ikze = parseFloat(document.getElementById("ikze").value);
@@ -8,13 +9,16 @@ document.getElementById("form").addEventListener("submit", function (e) {
   const ikzeReturn = parseFloat(document.getElementById("ikzeReturn").value);
 
   const total = deposit + bonds + ikze;
-  if (total !== 100) {
-    alert("Suma udziałów musi wynosić 100%");
+
+  if (total <= 0) {
+    alert("Suma portfela musi być większa niż 0 PLN");
     return;
   }
 
   const totalReturn = (
-    (deposit * depositReturn + bonds * bondsReturn + ikze * ikzeReturn) / 100
+    ((deposit * depositReturn) +
+     (bonds * bondsReturn) +
+     (ikze * ikzeReturn)) / total
   ).toFixed(2);
 
   document.getElementById("result").innerText = `Łączna stopa zwrotu: ${totalReturn}%`;
@@ -25,12 +29,10 @@ document.getElementById("form").addEventListener("submit", function (e) {
     type: "pie",
     data: {
       labels: ["Depozyt", "Fundusz obligacyjny", "IKZE"],
-      datasets: [
-        {
-          data: [deposit, bonds, ikze],
-          backgroundColor: ["#3498db", "#2ecc71", "#f39c12"],
-        },
-      ],
-    },
+      datasets: [{
+        data: [deposit, bonds, ikze],
+        backgroundColor: ["#3498db", "#2ecc71", "#f39c12"]
+      }]
+    }
   });
 });
